@@ -33,7 +33,12 @@ class App:
         self.recording = False
 
         # For model
-        self.models_v = [pickle.load(open(f"models_v{i}.pkl", "rb")) for i in range(1,12)]
+        self.models_v = []
+        for i in range(1, 12):
+            file = open(f"models_v{i}.pkl", "rb")
+            self.models_v.append(pickle.load(file))
+            file.close()
+        # self.models_v = [pickle.load(open(f"models_v{i}.pkl", "rb")) for i in range(1,12)]
         self.file_path = ""
         # self.predict = ""
 
